@@ -18,24 +18,18 @@ class MyFlutterApp extends StatelessWidget {
     return MaterialApp(
       // Allow to build screens with common UI elements
       home: Scaffold(
-        // Top App bar
-        appBar: AppBar(
-            backgroundColor: Colors.green,
-            title: const Text("My App Home screen")),
-        // Allow to contain multiple elements aligned vertically (main axis)
-        body: const Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Expanded(
-              flex: 4,
-              child: Icon(Icons.backpack),
-            ),
-            Icon(Icons.leaderboard),
-            Icon(Icons.person)
-          ],
-        ),
-      ),
+          // Top App bar
+          appBar: AppBar(
+              backgroundColor: Colors.green,
+              title: const Text("My App Home screen")),
+          // Allow to contain multiple elements aligned vertically (main axis)
+          body: const Column(
+            children: [
+              Icon(Icons.backpack),
+              Icon(Icons.leaderboard),
+              Icon(Icons.person)
+            ],
+          )),
     );
   }
 }
