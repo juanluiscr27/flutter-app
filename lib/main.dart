@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 // program entry point
@@ -9,16 +7,11 @@ void main() {
 }
 
 // Stateless Widget is a Flutter class used for UI elements with no dynamic data
-class MyFlutterApp extends StatefulWidget {
+class MyFlutterApp extends StatelessWidget {
   const MyFlutterApp({super.key});
 
-  @override
-  State<MyFlutterApp> createState() => _MyFlutterAppState();
-}
-
-class _MyFlutterAppState extends State<MyFlutterApp> {
-  int count = 0;
   // The build method returns a Widget and is called any time Flutter needs to
+  // rebuild the UI
   @override
   Widget build(BuildContext context) {
     // Is the root of the application. Allow to configure Themes and Routes
@@ -30,22 +23,33 @@ class _MyFlutterAppState extends State<MyFlutterApp> {
             backgroundColor: Colors.green,
             title: const Text("My App Home screen")),
         // Allow to contain multiple elements aligned vertically (main axis)
-        body: ListView.builder(
-          itemBuilder: (_, index) {
-            return Container(
-              color: randomColor(),
+        body: ListView(
+          scrollDirection: Axis.horizontal,
+          addAutomaticKeepAlives: false,
+          children: [
+            Container(
+              color: Colors.blue,
               width: 500,
               height: 500,
-            );
-          },
+            ),
+            Container(
+              color: Colors.red,
+              width: 500,
+              height: 500,
+            ),
+            Container(
+              color: Colors.yellow,
+              width: 500,
+              height: 500,
+            ),
+            Container(
+              color: Colors.orange,
+              width: 500,
+              height: 500,
+            ),
+          ],
         ),
       ),
     );
   }
-}
-
-Color randomColor() {
-  var random = Random();
-  return Color.fromRGBO(
-      random.nextInt(250), random.nextInt(250), random.nextInt(250), 1);
 }
