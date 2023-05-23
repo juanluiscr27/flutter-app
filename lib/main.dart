@@ -14,15 +14,6 @@ class MyFlutterApp extends StatelessWidget {
   // rebuild the UI
   @override
   Widget build(BuildContext context) {
-    // Is the root of the application. Allow to configure Themes and Routes
-    return MaterialApp(
-      // Allow to build screens with common UI elements
-      home: Scaffold(
-        // Top App bar
-        appBar: AppBar(
-            backgroundColor: Colors.green,
-            title: const Text("My App Home screen")),
-      ),
-    );
+    return const Placeholder();
   }
 }
