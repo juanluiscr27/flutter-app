@@ -23,31 +23,30 @@ class MyFlutterApp extends StatelessWidget {
             backgroundColor: Colors.green,
             title: const Text("My App Home screen")),
         // Allow to contain multiple elements aligned vertically (main axis)
-        body: ListView(
-          scrollDirection: Axis.horizontal,
-          addAutomaticKeepAlives: false,
-          children: [
-            Container(
-              color: Colors.blue,
-              width: 500,
-              height: 500,
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () {
+            print('pressed');
+          },
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
             ),
-            Container(
-              color: Colors.red,
-              width: 500,
-              height: 500,
+            BottomNavigationBarItem(
+              icon: Icon(Icons.business),
+              label: 'Business',
             ),
-            Container(
-              color: Colors.yellow,
-              width: 500,
-              height: 500,
-            ),
-            Container(
-              color: Colors.orange,
-              width: 500,
-              height: 500,
+            BottomNavigationBarItem(
+              icon: Icon(Icons.school),
+              label: 'School',
             ),
           ],
+        ),
+        drawer: const Drawer(
+          child: Text('Yo!'),
         ),
       ),
     );
