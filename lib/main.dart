@@ -30,19 +30,14 @@ class _MyFlutterAppState extends State<MyFlutterApp> {
             backgroundColor: Colors.green,
             title: const Text("My App Home screen")),
         // Allow to contain multiple elements aligned vertically (main axis)
-        floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () {
-            setState(() {
-              count++;
-            });
+        body: ListView.builder(
+          itemBuilder: (_, index) {
+            return Container(
+              color: randomColor(),
+              width: 500,
+              height: 500,
+            );
           },
-        ),
-        body: Center(
-          child: Text(
-            'Pressed: $count times.',
-            style: const TextStyle(fontSize: 60),
-          ),
         ),
       ),
     );
