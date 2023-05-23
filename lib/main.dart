@@ -22,12 +22,6 @@ class MyFlutterApp extends StatelessWidget {
         appBar: AppBar(
             backgroundColor: Colors.green,
             title: const Text("My App Home screen")),
-        body: Center(
-          child: Container(
-            padding: const EdgeInsets.all(10),
-            child: const Text('Hi Mom, this is my first Flutter App. 🤗'),
-          ),
-        ),
       ),
     );
   }
