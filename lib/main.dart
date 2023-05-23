@@ -23,11 +23,18 @@ class MyFlutterApp extends StatelessWidget {
             backgroundColor: Colors.green,
             title: const Text("My App Home screen")),
         // Allow to contain multiple elements aligned vertically (main axis)
-        body: FloatingActionButton(
-          child: const Icon(Icons.add),
-          onPressed: () {
-            print('pressed');
-          },
+        body: Stack(
+          children: [
+            Container(
+              color: Colors.red,
+              width: 100,
+              height: 100,
+            ),
+            const Align(
+              alignment: Alignment.center,
+              child: Icon(Icons.verified),
+            )
+          ],
         ),
       ),
     );
