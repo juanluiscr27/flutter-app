@@ -1,51 +1,56 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 // program entry point
 void main() {
   // Flutter global function that display a Widget argument to the screen
-  runApp(const MaterialApp(
-    home: MyFlutterApp(),
-  ));
+  runApp(const MyFlutterApp());
 }
 
 // Stateless Widget is a Flutter class used for UI elements with no dynamic data
-class MyFlutterApp extends StatelessWidget {
+class MyFlutterApp extends StatefulWidget {
   const MyFlutterApp({super.key});
 
   @override
+  State<MyFlutterApp> createState() => _MyFlutterAppState();
+}
+
+class _MyFlutterAppState extends State<MyFlutterApp> {
+  int count = 0;
+  // The build method returns a Widget and is called any time Flutter needs to
+  @override
   Widget build(BuildContext context) {
+    // Is the root of the application. Allow to configure Themes and Routes
     return MaterialApp(
+      // Allow to build screens with common UI elements
       home: Scaffold(
+        // Top App bar
         appBar: AppBar(
-          backgroundColor: Colors.green,
-          title: const Text('My App home screen'),
-        ),
-        body: ElevatedButton(
-          child: const Text('About Page'),
+            backgroundColor: Colors.green,
+            title: const Text("My App Home screen")),
+        // Allow to contain multiple elements aligned vertically (main axis)
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const AboutScreen(),
-              ),
-            );
+            setState(() {
+              count++;
+            });
           },
+        ),
+        body: Center(
+          child: Text(
+            'Pressed: $count times.',
+            style: const TextStyle(fontSize: 60),
+          ),
         ),
       ),
     );
   }
 }
 
-class AboutScreen extends StatelessWidget {
-  const AboutScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: const Text('About'),
-      ),
-    );
-  }
+Color randomColor() {
+  var random = Random();
+  return Color.fromRGBO(
+      random.nextInt(250), random.nextInt(250), random.nextInt(250), 1);
 }
